@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Directory{% endblock %}
+{% block content %}
+<h2 style="color:#2d3e50;">Alumni Directory</h2>
+<p style="color:#555;">Browse and connect with fellow alumni.</p>
+<div class="features-row" style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+  <div class="feature-card" style="flex:1; min-width:240px; background:#eaf6ff; border-radius:10px; padding:1.7rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s;">
+    <h3 style="color:#2d3e50;">Search Alumni</h3>
+    <p>Find alumni by name, graduation year, or field.</p>
+    <a href="#" class="btn">Search (Coming Soon)</a>
+  </div>
+  <div class="feature-card" style="flex:1; min-width:240px; background:#fffbe6; border-radius:10px; padding:1.7rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s;">
+    <h3 style="color:#2d3e50;">Featured Alumni</h3>
+    <p>See highlighted alumni and their achievements.</p>
+    <a href="#" class="btn">View (Coming Soon)</a>
+  </div>
+</div>
+<script>
+const featureCards = document.querySelectorAll('.feature-card');
+featureCards.forEach(card => {
+  card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-7px) scale(1.03)');
+  card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) scale(1)');
+});
+</script>
+{% endblock %} 

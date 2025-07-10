@@ -1,0 +1,105 @@
+Alumni Engagement Web App — Requirements Specification
+Project Name: (any preferred name)
+Framework: Flask (Python), Flask-SQLAlchemy, Bootstrap, SQLite/PostgreSQL, Flask-Mail
+
+1️Functional Requirements
+These define what core services and operations the system must offer.
+
+User Management
+FR1. The system shall allow alumni users to register and create a personal profile.
+
+FR2. The system shall allow users to log in and log out securely.
+
+FR3. The system shall provide an admin panel to manage users, events, and content.
+
+FR4. The system shall enable alumni to update their profiles with information such as graduation year, degree, current job title, location, and bio.
+
+FR5. The system shall support password reset via email.
+
+News and Announcements
+FR6. The system shall allow admin users to create, publish, edit, and delete news posts or announcements.
+
+FR7. The system shall display a list of recent news or updates on the homepage.
+
+FR8. The system shall allow users to view detailed news articles.
+
+Event Management
+FR9. The system shall allow admin users to create and manage alumni events with details like date, time, venue, description, and event image.
+
+FR10. The system shall allow users to view a list of upcoming and past events.
+
+FR11. The system shall allow users to RSVP for events and receive confirmation notifications.
+
+FR12. The system shall display event attendance summaries for admins.
+
+Alumni Directory
+FR13. The system shall display a searchable directory of registered alumni.
+
+FR14. The system shall allow users to search alumni by name, graduation year, or program.
+
+FR15. The system shall restrict sensitive alumni data to logged-in users only.
+
+Messaging and Contact
+FR16. The system shall provide a contact form for alumni inquiries or suggestions.
+
+FR17. The system shall notify the admin via email for each new inquiry.
+
+FR18. The system shall provide internal messaging for alumni to contact each other (optional or future feature).
+
+Job and Opportunity Board
+FR19. The system shall allow admin users to post job or internship opportunities.
+
+FR20. The system shall allow alumni to view and apply for listed opportunities.
+
+FR21. The system shall allow alumni to submit opportunities for admin approval.
+
+Feedback and Testimonials
+FR22. The system shall allow alumni to submit testimonials or feedback about their experience.
+
+FR23. The system shall display approved testimonials on a public page.
+
+Admin Reporting and Analytics
+FR24. The system shall generate reports on alumni registrations, event participation, and feedback submissions.
+
+FR25. The system shall display event attendance statistics and user engagement trends.
+
+2️Non-Functional Requirements
+These define how the system should perform and its qualitative characteristics.
+
+Performance
+NFR1. The system shall respond to user actions within 2 seconds for 90% of transactions.
+
+NFR2. The system shall process RSVP and contact form submissions in under 3 seconds.
+
+Security
+NFR3. The system shall enforce HTTPS for all data transmissions.
+
+NFR4. The system shall hash and securely store user passwords (using Werkzeug or Flask extensions).
+
+NFR5. The system shall validate all user inputs to prevent SQL injection, XSS, and CSRF attacks.
+
+NFR6. The system shall implement role-based access control (Admin vs Alumni users).
+
+Usability
+NFR7. The system shall provide a clean, responsive web interface compatible with desktops, tablets, and smartphones.
+
+NFR8. The system shall offer intuitive navigation with user-friendly forms and error messages.
+
+Availability
+NFR9. The system shall maintain 99% uptime when deployed on production hosting.
+
+NFR10. The system shall log all system errors and notify admin of critical issues.
+
+Maintainability
+NFR11. The system codebase shall follow Flask coding standards and PEP8 guidelines.
+
+NFR12. The system shall organize routes, views, models, and templates into a modular project structure for ease of updates.
+
+Scalability
+NFR13. The system shall be designed to accommodate up to 500 concurrent users without significant performance drops.
+
+NFR14. The system shall allow for easy integration of new modules (e.g., video conferencing, discussion forums).
+
+Interoperability
+NFR15. The system shall provide APIs or endpoints to support integration with future mobile apps or third-party alumni databases.
+

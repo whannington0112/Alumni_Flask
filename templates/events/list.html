@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Events{% endblock %}
+{% block content %}
+<h2 style="color:#2d3e50;">Alumni Events</h2>
+<p style="color:#555;">Stay up to date with alumni events and reunions.</p>
+<div class="features-row" style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+  <div class="feature-card" style="flex:1; min-width:240px; background:#eaf6ff; border-radius:10px; padding:1.7rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s;">
+    <h3 style="color:#2d3e50;">Upcoming Events</h3>
+    <p>See what's happening soon in the alumni community.</p>
+    <a href="#" class="btn">View (Coming Soon)</a>
+  </div>
+  <div class="feature-card" style="flex:1; min-width:240px; background:#fffbe6; border-radius:10px; padding:1.7rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s;">
+    <h3 style="color:#2d3e50;">Host an Event</h3>
+    <p>Organize a reunion or networking session.</p>
+    <a href="#" class="btn">Host (Coming Soon)</a>
+  </div>
+</div>
+<script>
+const featureCards = document.querySelectorAll('.feature-card');
+featureCards.forEach(card => {
+  card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-7px) scale(1.03)');
+  card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) scale(1)');
+});
+</script>
+{% endblock %} 

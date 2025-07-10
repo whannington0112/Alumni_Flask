@@ -1,0 +1,163 @@
+Project Structure
+Core Application Files
+
+app.py - Main Flask application entry point and configuration
+config.py - Application configuration settings (database, mail, secret keys)
+requirements.txt - Python dependencies list
+
+Models (Database Layer)
+
+models/user.py - User model (alumni profiles, authentication)
+models/news.py - News and announcements model
+models/event.py - Event management model
+models/rsvp.py - Event RSVP model
+models/job.py - Job opportunities model
+models/testimonial.py - Alumni testimonials model
+models/contact.py - Contact form submissions model
+
+Routes/Views (Controllers)
+
+routes/auth.py - Registration, login, logout, password reset
+routes/main.py - Homepage, dashboard, general pages
+routes/profile.py - User profile management
+routes/news.py - News viewing and management
+routes/events.py - Event listing, details, RSVP
+routes/directory.py - Alumni directory and search
+routes/jobs.py - Job board functionality
+routes/admin.py - Admin panel and management
+routes/contact.py - Contact form handling
+
+Templates (Frontend)
+
+templates/base.html - Base template with navigation
+templates/index.html - Homepage
+templates/auth/login.html - Login form
+templates/auth/register.html - Registration form
+templates/auth/reset_password.html - Password reset
+templates/profile/view.html - Profile display
+templates/profile/edit.html - Profile editing
+templates/news/list.html - News listing
+templates/news/detail.html - Individual news article
+templates/events/list.html - Events listing
+templates/events/detail.html - Event details and RSVP
+templates/directory/list.html - Alumni directory
+templates/jobs/list.html - Job opportunities
+templates/admin/dashboard.html - Admin dashboard
+templates/admin/manage_users.html - User management
+templates/admin/manage_events.html - Event management
+templates/contact.html - Contact form
+templates/testimonials.html - Testimonials display
+
+Static Files
+
+static/css/style.css - Custom styles
+static/js/main.js - JavaScript functionality
+static/img/ - Images directory
+
+Utility Files
+
+utils/email.py - Email sending functionality
+utils/decorators.py - Authentication decorators
+utils/forms.py - WTForms form classes
+utils/helpers.py - Helper functions
+
+Database
+
+migrations/ - Database migration files (Flask-Migrate)
+instance/database.db - SQLite database file (development)
+
+Database Schema
+users table
+sql- id (Primary Key, Integer, Auto-increment)
+- username (String, Unique, Not Null)
+- email (String, Unique, Not Null)
+- password_hash (String, Not Null)
+- first_name (String, Not Null)
+- last_name (String, Not Null)
+- graduation_year (Integer)
+- degree (String)
+- current_job_title (String)
+- location (String)
+- bio (Text)
+- profile_image (String) -- file path
+- is_admin (Boolean, Default: False)
+- is_active (Boolean, Default: True)
+- created_at (DateTime, Default: Current timestamp)
+- updated_at (DateTime, Default: Current timestamp)
+news table
+sql- id (Primary Key, Integer, Auto-increment)
+- title (String, Not Null)
+- content (Text, Not Null)
+- summary (Text)
+- image_url (String)
+- author_id (Foreign Key → users.id)
+- is_published (Boolean, Default: False)
+- created_at (DateTime, Default: Current timestamp)
+- updated_at (DateTime, Default: Current timestamp)
+events table
+sql- id (Primary Key, Integer, Auto-increment)
+- title (String, Not Null)
+- description (Text, Not Null)
+- event_date (DateTime, Not Null)
+- venue (String, Not Null)
+- event_image (String)
+- max_attendees (Integer)
+- created_by (Foreign Key → users.id)
+- is_active (Boolean, Default: True)
+- created_at (DateTime, Default: Current timestamp)
+- updated_at (DateTime, Default: Current timestamp)
+rsvps table
+sql- id (Primary Key, Integer, Auto-increment)
+- user_id (Foreign Key → users.id)
+- event_id (Foreign Key → events.id)
+- status (String) -- 'attending', 'not_attending', 'maybe'
+- rsvp_date (DateTime, Default: Current timestamp)
+- notes (Text)
+- UNIQUE(user_id, event_id) -- One RSVP per user per event
+jobs table
+sql- id (Primary Key, Integer, Auto-increment)
+- title (String, Not Null)
+- company (String, Not Null)
+- description (Text, Not Null)
+- requirements (Text)
+- location (String)
+- job_type (String) -- 'full-time', 'part-time', 'internship', 'contract'
+- salary_range (String)
+- application_url (String)
+- contact_email (String)
+- posted_by (Foreign Key → users.id)
+- is_approved (Boolean, Default: False)
+- is_active (Boolean, Default: True)
+- deadline (DateTime)
+- created_at (DateTime, Default: Current timestamp)
+- updated_at (DateTime, Default: Current timestamp)
+testimonials table
+sql- id (Primary Key, Integer, Auto-increment)
+- user_id (Foreign Key → users.id)
+- title (String)
+- content (Text, Not Null)
+- rating (Integer) -- 1-5 stars
+- is_approved (Boolean, Default: False)
+- is_featured (Boolean, Default: False)
+- created_at (DateTime, Default: Current timestamp)
+- updated_at (DateTime, Default: Current timestamp)
+contact_submissions table
+sql- id (Primary Key, Integer, Auto-increment)
+- name (String, Not Null)
+- email (String, Not Null)
+- subject (String, Not Null)
+- message (Text, Not Null)
+- user_id (Foreign Key → users.id, Nullable) -- If logged in
+- is_read (Boolean, Default: False)
+- admin_response (Text)
+- responded_at (DateTime)
+- created_at (DateTime, Default: Current timestamp)
+messages table (Optional - for internal messaging)
+sql- id (Primary Key, Integer, Auto-increment)
+- sender_id (Foreign Key → users.id)
+- recipient_id (Foreign Key → users.id)
+- subject (String, Not Null)
+- content (Text, Not Null)
+- is_read (Boolean, Default: False)
+- sent_at (DateTime, Default: Current timestamp)
+- read_at (DateTime)

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Jobs{% endblock %}
+{% block content %}
+<h2 style="color:#2d3e50;">Job Opportunities</h2>
+<p style="color:#555;">Find jobs and internships shared by alumni.</p>
+<div class="features-row" style="display:flex; flex-wrap:wrap; gap:2rem; justify-content:center;">
+  <div class="feature-card" style="flex:1; min-width:240px; background:#fffbe6; border-radius:10px; padding:1.7rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s;">
+    <h3 style="color:#2d3e50;">Search Jobs</h3>
+    <p>Find jobs by title, company, or location.</p>
+    <a href="#" class="btn">Search (Coming Soon)</a>
+  </div>
+  <div class="feature-card" style="flex:1; min-width:240px; background:#eaf6ff; border-radius:10px; padding:1.7rem; box-shadow:0 2px 8px rgba(0,0,0,0.04); transition:transform 0.2s;">
+    <h3 style="color:#2d3e50;">Post a Job</h3>
+    <p>Share job opportunities with the alumni network.</p>
+    <a href="#" class="btn">Post (Coming Soon)</a>
+  </div>
+</div>
+<script>
+const featureCards = document.querySelectorAll('.feature-card');
+featureCards.forEach(card => {
+  card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-7px) scale(1.03)');
+  card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0) scale(1)');
+});
+</script>
+{% endblock %} 
